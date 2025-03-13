@@ -1,0 +1,256 @@
+:root {
+    --primary-color: #6C63FF;
+    --secondary-color: #1A1A24;
+    --text-color: #FFFFFF;
+    --card-bg: #2D2D3A;
+    --font-primary: 'Segoe UI', sans-serif;
+}
+
+/* Light Tema Değişkenleri */
+body.light-theme {
+    --secondary-color: #F5F5F5;
+    --text-color: #2D2D3A;
+    --card-bg: #FFFFFF;
+
+}
+
+/* Genel Stil */
+body {
+    font-family: var(--font-primary);
+    background: var(--secondary-color);
+    color: var(--text-color);
+    margin: 0;
+    transition: background 0.3s;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.profile-img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    margin-bottom: 30px;
+    box-shadow: 0 0 30px rgba(108, 99, 255, 0.4);
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 15px 0 40px;
+}
+
+/* Sosyal Medya Butonları */
+.social-links {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.social-btn {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    transition: all 0.3s;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    background: var(--primary-color);
+}
+
+/* Geometrik Şekiller */
+.shape {
+    position: absolute;
+    background: rgba(108, 99, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: 20%;
+    left: 10%;
+    animation: float 8s infinite;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: 15%;
+    animation: float 6s infinite;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    bottom: 10%;
+    left: 40%;
+    animation: float 5s infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+/* Yetenek Barları */
+.skill-bars {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill-bar {
+    margin-bottom: 25px;
+}
+
+.skill-name {
+    margin-bottom: 8px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.skill-progress {
+    height: 12px;
+    background: var(--card-bg);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-progress::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: var(--progress);
+    background: var(--primary-color);
+    border-radius: 6px;
+    animation: fillProgress 1.5s ease-out forwards;
+}
+
+/* Projeler */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    margin: 0 0 15px;
+    color: var(--primary-color);
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Tema Butonu */
+#themeToggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-color);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background 0.3s;
+    z-index: 1000;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* Animasyonlar */
+.animate-pop-in {
+    opacity: 0;
+    animation: popIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes popIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: none; }
+}
+
+@keyframes fillProgress {
+    from { width: 0; }
+    to { width: var(--progress); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .subtitle { font-size: 1.2rem; }
+    .project-grid { grid-template-columns: 1fr; }
+}
